@@ -11,6 +11,7 @@ namespace generavimas
         public void GetRandomPassword(int length, int num)
         {
             const string chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ?!@#$%^&";
+            string[] mas = { " " };
 
             Random rnd = new Random();
 
@@ -23,9 +24,10 @@ namespace generavimas
                     int index = rnd.Next(chars.Length);
                     sb.Append(chars[index]);   
                 }
-                Console.WriteLine(sb);
+                Array.Resize(ref mas, mas.Length + 1);
+                mas[j] = sb.ToString();
+                Console.WriteLine(mas[j]);
             }
-
         }
     }
 }
